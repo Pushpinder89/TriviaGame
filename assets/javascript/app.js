@@ -1,7 +1,125 @@
+$(document).ready(function() {
 
-$('#firsthide').hide();
+    //These are global variables
+    var number = 30;
+    var intervalId;
+    var gcount = 0;
+    var wcount = 0;
+    var unanswered = 0;
+    
+    //Start the coundown
+    function run() {
+        intervalId = setInterval(decrement, 1000);
+    }
+    
+    //Hide the questions and other contents
+    $(window).on("load", hide);
+    
+    $('#start').on('click', function(){
+        $(this).hide();
+        show();
+        run();
+    });
+    
+    $('#done').on('click', function(){
+        $('#start').hide();
+        hide();
+        rSummary();
+        stop();
+    });
+    
+    //Create the elements for the result page
+    function rSummary(){
+        var alldone = $('<h2>').html('Game Over!');
+        var canswers = $('<p>').html('Correct answers: ' + gcount);
+        var wanswers = $('<p>').html('Incorrect answers: ' + wcount);
+        var cunanswered = $('<p>').html('Unanswered: ' + unanswered);
+        var newclass= $('<div class="col-lg-4 col-lg-offset-4 text-center" id="summary">');
+        newclass.append(alldone);
+        newclass.append(canswers);
+        newclass.append(wanswers);
+        newclass.append(cunanswered);
+        $('.row:nth(2)').append(newclass);
+    }
+    
+    function decrement() {
+        //  Decrease number by one.
+        number--;
+         
+         //  Show the number in the #show-number tag.
+         $("#timer").html(" " + number + " seconds");
+        
+        //  Once number hits one...
+        if (number === 1) {
+            $("#timer").html(" " + number + " second");
+        }
+          //  Once number hits zero...
+        else if (number === 0) {
+            //  ...run the stop function.
+            $('#start').hide();
+            hide();
+            rSummary();
+            stop();
+        }
+    }
+    
+    function stop() {
+        clearInterval(intervalId);
+    }
+    
+    
+    
+    //This function will hide some contents
+    function hide(){
+        $('.form-group').hide();
+        $('#time').hide();
+        $('#done').hide();
+    }
+    
+    //This function will hide some contents
+    function show() {
+        $('.form-group').show();
+        $('#time').show();
+        $('#done').show();
+    }
+    
+    //Grab all radio buttons and calculate good and incorrect answers when a change occurs
+    $('input[type=radio]').on("change", function() {
+       gcount =  $('input[value=goodanswer]:checked').length;
+       wcount = $('input[value=wrong]:checked').length;
+       unanswered = (5-(gcount + wcount));
+    });
+    
+    });
 
-var questionsArray = [
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*var questionsArray = [
   "What is the name of the U.S. president who served in 1789–1797 ?",
   "What is the name of the U.S. president who served in 1797–1801 ?",
   "What is the name of the U.S. president who served in 1801–1809 ?",
@@ -46,8 +164,8 @@ var questionsArray = [
   "What is the name of the U.S. president who served in 1993–2001?",
   "What is the name of the U.S. president who served in 2001–2009?",
   "What is the name of the U.S. president who served in 2009–2017 ?",
-  "What is the name of the U.S. president who served in 2017–present ?"*/
-];
+  "What is the name of the U.S. president who served in 2017–present ?"
+];*/
 var answersArray = [
   ["A. Donald J. Trump", "B. George Washington", "C. Woodrow Wilson ", "D. Abraham Lincoln"],
   ["A. John Adams", "B. Warren Harding", "C. William J. Clinton ", "D. John F. Kennedy "],
@@ -146,41 +264,293 @@ var correctAnswersArray = [
 
 var randomQuestion;
 var randomQuestionOptions;
+var newRandomQuestion;
+var newRandomQuestionOptions;
 var buttonAlert;
+var randomIndex;
+var previousQuetions = []; 
+var newRandomIndex;
+/********************************************* */
+/*$('#formDiv').hide();
 
+var timer;
+var correctAnswers =0;
+var wrongAnswers =0;
+var noAnswers =0;
 
-
-///////////////////////////////////////////////////
+//timer
+function run() {
+  timer = setInterval(decrement, 1000);
+}
+//onclick start button
 $('#start').on("click", function(){
-  $('#start').hide();
-    $('#firsthide').show();
-    var randomIndex = Math.floor(Math.random() * questionsArray.length);
+   $('#start').hide();
+$('#formDiv').show();
+run();
 
-    var previousQuetions = []; ////????????????
-    
-    if (randomIndex === ) {
-      randomIndex = Math.floor(Math.random() * questionsArray.length);
-      
-    }
-
-    randomQuestion = questionsArray[randomIndex];
-     randomQuestionOptions = answersArray[randomIndex];
-  $('#question1').append(randomQuestion);
-  $('#options').append(randomQuestionOptions);
-  console.log(randomQuestion);
-///////////////////////////////////////////////
-  buttonAlert = setInterval(function() {
-    
-      randomQuestion = questionsArray[Math.floor(Math.random() * questionsArray.length)];
-      randomQuestionOptions = answersArray[Math.floor(Math.random() * questionsArray.length)];
-      $('#question1').empty();
-      $('#options').empty();
-      $('#question1').append(randomQuestion);
-    $('#options').append(randomQuestionOptions);
-    
-    
-  }, 3000); 
-
+ });
+//getting user input
+ $('input[type=radio]').on("change", function() {
+  correctAnswers =  $('input[value=correctAnswers]:checked').length;
+  wrongAnswers = $('input[value=wrong]:checked').length;
+  noAnswers = (7-(gcount + wcount));
 });
-/////////////////////////////////////////////
+//checking work
+console.log(correctAnswers);
+console.log(wrongAnswers);
+console.log(noAnswers);
+
+
+/******************************** */
+/*$(document).ready(function() {
+
+  //These are global variables
+  var number = 30;
+  var intervalId;
+  var gcount = 0;
+  var wcount = 0;
+  var unanswered = 0;
+  
+  //Start the coundown
+  function run() {
+      intervalId = setInterval(decrement, 1000);
+  }
+  */
+  //Hide the questions and other contents
+ /* $(window).on("load", hide);
+  
+  $('#start').on('click', function(){
+      $(this).hide();
+      show();
+      run();
+  });
+  
+  $('#done').on('click', function(){
+     // $('#start').hide();
+      hide();
+      rSummary();
+      stop();
+  });
+  
+  //Create the elements for the result page
+  function rSummary(){
+      var alldone = $('<h2>').html('All Done!');
+      var canswers = $('<p>').html('Correct answers: ' + gcount);
+      var wanswers = $('<p>').html('Incorrect answers: ' + wcount);
+      var cunanswered = $('<p>').html('Unanswered: ' + unanswered);
+      var newclass= $('<div class="col-lg-4 col-lg-offset-4 text-center" id="summary">');
+      newclass.append(alldone);
+      newclass.append(canswers);
+      newclass.append(wanswers);
+      newclass.append(cunanswered);
+      $('.row:nth(2)').append(newclass);
+  }
+  
+  function decrement() {
+      //  Decrease number by one.
+      number--;
+       
+       //  Show the number in the #show-number tag.
+       $("#timer").html(" " + number + " seconds");
+      
+      //  Once number hits one...
+      if (number === 1) {
+          $("#timer").html(" " + number + " second");
+      }
+        //  Once number hits zero...
+      else if (number === 0) {
+          //  ...run the stop function.
+          $('#start').hide();
+          hide();
+          rSummary();
+          stop();
+      }
+  }
+  
+  function stop() {
+      clearInterval(intervalId);
+  }
+  */
+  
+  
+  //This function will hide some contents
+  /*function hide(){
+      $('.form-group').hide();
+      $('#time').hide();
+      $('#done').hide();
+  }*/
+  
+  //This function will hide some contents
+ /* function show() {
+      $('.form-group').show();
+      $('#time').show();
+      $('#done').show();
+  }*/
+  
+  //Grab all radio buttons and calculate good and incorrect answers when a change occurs
+ /* $('input[type=radio]').on("change", function() {
+     gcount =  $('input[value=goodanswer]:checked').length;
+     wcount = $('input[value=wrong]:checked').length;
+     unanswered = (7-(gcount + wcount));
+  });
+  
+  });
+*/
+
+
+/********************************************* */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ ///////////////////////////////////////////////////
+/*$('#start').on("click", function(){
+   $('#start').hide();
+$('#firsthide').show();
+
+ });
+
+
+    buttonAlert = setTimeout(function() {
+      for (let i = 0; i < questionsArray.length; i++) {
+   
+        $('#question1').empty();
+        $('#options').empty();
+        $('#question1').append(questionsArray[i]);
+        $('#options').append(answersArray[i]);
+      
+       }
+    },3000)
+
+    
+  });*/
+//   buttonAlert = setInterval(function() {
+//     randomIndex = (Math.floor(Math.random()*questionsArray.length)) ;
+//       randomQuestion = questionsArray[randomIndex];
+//       randomQuestionOptions = answersArray[randomIndex];
+//       console.log(randomIndex);
+//       previousQuetions.push(randomIndex);
+//       console.log(randomQuestion);
+//       console.log(randomQuestionOptions);
+//       console.log(previousQuetions);
+// while (true) {
+//   if (previousQuetions.includes(randomIndex)) {
+//     randomIndex = (Math.floor(Math.random()*questionsArray.length));
+//     continue;
+//   }
+//   previousQuetions.push(randomIndex); 
+//   break;
+// }
+  
+//         $('#question1').empty();
+//         $('#options').empty();
+//         randomQuestion = questionsArray[randomIndex];
+//         randomQuestionOptions = answersArray[randomIndex];
+       
+//         $('#question1').append(randomQuestion);
+//       $('#options').append(randomQuestionOptions);
+        
+    
+      //   $('#question1').empty();
+      //   $('#options').empty();
+      //   $('#question1').append(randomQuestion);
+      // $('#options').append(randomQuestionOptions);
+
+
+
+
+// set timer for each question. when question array is empty then stop the game aand ask user option to play again, also give an option to pause the game or leave the game. reset the game if the user wants to leave or if the game is over. 
+// /////////////////////////////////////////////
 

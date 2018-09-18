@@ -1,4 +1,134 @@
-<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="assets/css/reset.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <title>Totally Trivial Trivia</title>
+</head>
+<body>
+
+<div id="container">
+    <div class="row">
+        <h1 id ="mainheading">Totally Trivial Trivia!</h1>
+    </div>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4 ">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="start">Start</button>
+        </div>
+        <div class="col-lg-4 col-lg-offset-4 text-center">
+            <p id="time">Time Remaining:<span id="timer"></span></p>
+        </div>
+    </div>
+
+        <div class="form-group text-center">
+            <p>1. What is the name of the U.S. president who served in 1789–1797 ?</p>
+            <form class="question">
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="goodanswer">George Washington
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong"> Donald J. Trump
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Woodrow Wilson
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Abraham Lincoln
+                </label>
+            </form>
+            
+            <p>2. What is the name of the U.S. president who served in 1797–1801 </p>
+            <form class="question">
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Warren Harding 
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">William J. Clinton
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="goodanswer">John Adams
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">John F. Kennedy 
+                </label>
+            </form>
+
+            <p>3. What is the name of the U.S. president who served in 1801–1809 ?</p>
+            <form class="question">
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="goodanswer"> Thomas Jefferson 
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Ronald Reagan
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Benjamin Harrison
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Donald J. Trump
+                </label>
+            </form>
+            
+            <p>4.  What is the name of the U.S. president who served in 1809–1817?</p>
+            <form class="question">
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="goodanswer">James Madison
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong"> George H. W. Bush
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Thomas Jefferson
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Richard Nixon
+                </label>
+            </form>
+            
+            <p>5.What is the name of the U.S. president who served in 1817–1825 ?</p>
+            <form class="question">
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">Barack Obama 
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="goodanswer">James Monroe
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">George Washington
+                </label>
+                <label class="radio-inline">
+                  <input type="radio" name="optradio" class="optradio" value="wrong">William J. Clinton 
+                </label>
+            </form>
+
+        </div>
+    <div class="row">
+        <div class="col-lg-4 col-lg-offset-4">
+            <button type="button" class="btn btn-primary btn-lg btn-block" id="done">DONE</button>
+        </div>
+    </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="assets/javascript/app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+<!--<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -15,32 +145,107 @@
             Totally Trivial Trivia !
         </h1>
         <div id= "firsthide">
-             <p id = "timeRemaning">Time Remaining: </p>
-                <p id = "question1"> </p>
-                <P id ="options"> </P> 
-            </br>
- 
-    
+            
+                        <div class="col-lg-4 col-lg-offset-4 text-center">
+                            <p id="time">Time Remaining:<span id="timer"></span></p>
+                        </div>
+                    </div>
+                
+                        <div id= "formDiv">
+                            <p>1. What is converted into alcohol during brewing?</p>
+                            <form id="question1">
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="correctAnswers">Sugar
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Lemon
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Milk
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Water
+                                </label>
+                            </form>
+                            
+                            <p>2. What is the capital of Canada?</p>
+                            <form id="question2">
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Vancouver
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Montreal
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="correctAnswers">Ottawa
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Toronto
+                                </label>
+                            </form>
+                
+                            <p>3. In which country is Transylvania?</p>
+                            <form id="question3">
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="correctAnswers">Romania
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">France
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Germany
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">England
+                                </label>
+                            </form>
+
+                            <p>4. In which country is Transylvania?</p>
+                            <form id="question4">
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="correctAnswers">Romania
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">France
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Germany
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">England
+                                </label>
+                            </form>
+
+                            <p>5. In which country is Transylvania?</p>
+                            <form id="question5">
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="correctAnswers">Romania
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">France
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">Germany
+                                </label>
+                                <label class="radio-inline">
+                                  <input type="radio" name="optradio" class="optradio" value="wrong">England
+                                </label>
+                            </form>
+                        </div>
+                    <div class="row">
+                        <div class="col-lg-4 col-lg-offset-4">
+                            <button type="button" class="btn btn-primary btn-lg btn-block" id="done">DONE</button>
+                            <button type="button" class="btn btn-primary btn-lg btn-block" id="next">NEXT</button>
+                        </div>
+                    </div>
+                    <button id="start"> Start The Game </button> 
         </div> 
-
-   
-    
-        <button id="start"> Start The Game </button>
+         
     </div>
-    
-        
-
-    
-
-
-
-
-
-
     <script
   src="https://code.jquery.com/jquery-3.3.1.min.js"
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous"></script>
-    <script src="assets/javascript/app.js"></script>
+<script src="assets/javascript/app.js"></script>
 </body>
-</html>
+</html> -->
